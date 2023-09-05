@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../Provider/MyCartProvider';
-
+import { FaBeer, FaTrash } from 'react-icons/fa';
 const Navbar = () => {
     const { product, setProduct } = useContext(CartContext)
     let total = 0
@@ -19,16 +19,12 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="lg:bg-gray-600 bg-gray-600">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="lg:bg-red-300 bg-red-300">
+            <div className="px-5 sm:px-6 lg:px-5">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <img
-                                className="h-8 w-8"
-                                src="https://via.placeholder.com/32"
-                                alt="Logo"
-                            />
+                            <h1 className='text-white font-semibold text-3xl'>My Shop</h1>
                         </div>
                     </div>
                     <div className="hidden md:block">
@@ -38,10 +34,10 @@ const Navbar = () => {
                                 className="relative group"
                             >
                                 <button
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                     onClick={toggleMenu}
                                 >
-                                    Services
+                                    My Cart {product.length}
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className="h-5 w-5 inline-block ml-1 -mt-1 transform transition-transform duration-300"
@@ -66,10 +62,10 @@ const Navbar = () => {
                                         >
                                             <h1 className='text-xl font-semibold'>Total price {total}</h1>
                                             {
-                                                product.map(item => <li className='flex items-center gap-5 mt-3'>
+                                                product.map(item => <li className='flex items-center gap-5 mt-3 '>
                                                     <img className='h-[75px] w-[75px]' src={item.thumbnail} alt="" />
                                                     <h1>{item.title}</h1>
-                                                    <button onClick={() => handleRemove(item)}>Delete</button>
+                                                    <button className='text-white' onClick={() => handleRemove(item)}><FaTrash className='px-2 py-3 text-white text-5xl rounded bg-red-300 '></FaTrash></button>
 
                                                 </li>)
                                             }
@@ -113,7 +109,7 @@ const Navbar = () => {
                             product.map(item => <li className='flex items-center gap-5 mt-3'>
                                 <img className='h-[75px] w-[75px]' src={item.thumbnail} alt="" />
                                 <h1 className='text-white'>{item.title}</h1>
-                                <button className='text-white' onClick={() => handleRemove(item)}>Delete</button>
+                                <button className='text-white' onClick={() => handleRemove(item)}><FaTrash className='px-2 py-3 text-white text-5xl rounded bg-red-300 '></FaTrash></button>
 
                             </li>)
                         }
