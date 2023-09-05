@@ -6,5 +6,7 @@ and then need to install npm package
 #### Run this command for clone this project -> git clone https://github.com/lanjudev16/EcommerceWebApp.git
 - step-2
 #### Also need to run this command 
-cd 
+cd EcommerceWebApp
+- step-3
+#### Also need to run this command 
 npm install
